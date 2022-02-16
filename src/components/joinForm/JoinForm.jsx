@@ -36,7 +36,13 @@ const JoinForm = () => {
             e.preventDefault();
             hmsActions.join({
                 userName: input.name,
-                authToken: input.token
+                authToken: input.token,
+                settings: {
+                    isAudioMuted: true,
+                    isVideoMuted: false,
+                },
+                metaData: JSON.stringify({city: 'Lagos'}),
+                rememberDeviceSelection: true
             });
         };
 

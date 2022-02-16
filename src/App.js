@@ -40,6 +40,7 @@ function App() {
   const isConnected = useHMSStore(selectIsConnectedToRoom);
   const hmsActions = useHMSActions();
 
+  // incase the user refreshes or closes the tab
   useEffect(() => {
     window.onunload = () => {
       if(isConnected) {
@@ -51,12 +52,19 @@ function App() {
   
   return (
     <> 
-    <div>
+  <div>
+      <div> 
+    {isConnected ? 'Connected' : 'Not Connected Yet'}
+      </div>
+
+      <div>
     {isConnected ? ( <Meeting /> ) :(
       <Routes>
         <Route path='/joinform' element={<JoinForm />} /> 
-      </Routes>  )}      
-    </div>
+      </Routes>  )}   
+      </div>   
+  </div>
+
     
     { location.pathname == '/' && (
     <Card sx={styles.card}>

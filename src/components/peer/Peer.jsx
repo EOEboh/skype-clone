@@ -5,7 +5,7 @@ const Peer = ({peer}) => {
 
     const ref = useVideo(peer.videoTrack);
     
-    // const ref = useVideo(peer.videoTrack);
+    
     const width = '750px';
     const height ='500px';
   return (
@@ -15,12 +15,13 @@ const Peer = ({peer}) => {
         className={`peer-video ${peer.isLocal ? "local" : ""}`}
         autoPlay
         muted
-        playsInline
+        playsInlinev 
         width={width}
         height={height}
       />
       <div className="peer-name">
-        {peer.name} {peer.isLocal ? "(You)" : ""}
+        {peer.name} 
+        {/* {peer.isLocal ? "(You)" : ""} */}
       </div>
     </div>
   );
