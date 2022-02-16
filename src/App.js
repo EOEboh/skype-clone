@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-// import '@fontsource/roboto/300.css';
+
 // material UI
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -10,8 +10,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-import JoinForm from './components/JoinForm';
-import Conference from './components/Conference';
+import JoinForm from './components/joinForm/JoinForm';
+import Meeting from './components/meeting/Meeting';
+
 
 // 100ms SDK
 import { 
@@ -37,21 +38,21 @@ function App() {
   let location = useLocation();
 
   const isConnected = useHMSStore(selectIsConnectedToRoom);
-  const hmsActions = useHMSActions;
+  const hmsActions = useHMSActions();
 
   useEffect(() => {
     window.onunload = () => {
       if(isConnected) {
         hmsActions.leave();
       }
-    }
+    };
   }, [hmsActions, isConnected])
 
   
   return (
     <> 
     <div>
-    {isConnected ? ( <Conference /> ) :(
+    {isConnected ? ( <Meeting /> ) :(
       <Routes>
         <Route path='/joinform' element={<JoinForm />} /> 
       </Routes>  )}      

@@ -1,5 +1,7 @@
 import React, { useState} from 'react';
 import { useHMSActions } from '@100mslive/react-sdk';
+// hook for styling
+import useStyles from './styles';
 
 // Material UI
 import Button from '@mui/material/Button';
@@ -12,6 +14,9 @@ import { borderRadius } from '@mui/system';
 const JoinForm = () => {
     // Hook for hmsActions
     const hmsActions = useHMSActions();
+
+    // Hook for styling
+    const classes = useStyles();
 
     // state for the input values
     const [ input, setInput ] = useState(
@@ -37,11 +42,8 @@ const JoinForm = () => {
 
 
   return (
-        <form onSubmit={handleSubmit} 
-                style={{textAlign:'center', marginTop:'2rem'}}>
-            <div 
-                style={{position:'relative', display: 'inline-block'}}> 
-                 
+        <form onSubmit={handleSubmit} className={classes.form}>
+            <div className={classes.div}>      
             <TextField
                 id='name'
                 type='text'
@@ -74,6 +76,7 @@ const JoinForm = () => {
   )
 }
 
+// styling
 const styles = {
     joinFormStyle:{
         marginTop: '2rem'
@@ -85,11 +88,6 @@ const styles = {
         padding: '15px'
     }
 }
-
-
-
-
-
 
 
 

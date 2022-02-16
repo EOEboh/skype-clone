@@ -1,12 +1,13 @@
 import React from 'react'
-import { useHMSStore, selectPeers } from '@100mslive/hms-video-react'
+import { useHMSStore, selectPeers } from '@100mslive/react-sdk';
+import Peer from '../peer/Peer';
 
 
 const Video = () => {
     const peers = useHMSStore(selectPeers);
   return (
     <div>
-        <Peers peers={peers} />
+        <Peer peers={peers} />
     </div>
   )
 }
