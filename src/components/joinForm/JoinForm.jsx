@@ -5,6 +5,8 @@ import useStyles from './styles';
 
 import getToken from '../../endpoints/getToken';
 
+import ChatContainer from '../chat/ChatContainer'
+
 // Material UI
 import Button from '@mui/material/Button';
 import { Typography, TextField } from '@mui/material';
@@ -12,6 +14,8 @@ import '@fontsource/roboto/300.css';
 import { borderRadius } from '@mui/system';
 // import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 // import BuildIcon from '@mui/icons-material/Build';
+
+
 
 const JoinForm = () => {
     // Hook for hmsActions
@@ -60,6 +64,7 @@ const JoinForm = () => {
 
 
   return (
+      <>
         <form className={classes.form}>
                 <div className={classes.div}>      
             <TextField
@@ -81,6 +86,9 @@ const JoinForm = () => {
                     Start Call
                 </Button>
         </form>
+        <ChatContainer />
+        
+        </>
   )
 }
 

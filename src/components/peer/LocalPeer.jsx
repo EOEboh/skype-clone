@@ -16,7 +16,7 @@ const LocalPeer = ({localpeer}) => {
     // const height ='900px';
 
   return (
-    <div className={classes.peerContainer}>
+    <div className={styles.borderRadius}>
       <video
         ref={ref}
         className={`peer-video ${localpeer.isLocal ? "local" : ""}`}
@@ -31,6 +31,11 @@ const LocalPeer = ({localpeer}) => {
       </div>
     </div>
   );
+}
+
+const styles ={
+  borderRadius: '50%',
+  
 }
 
 export default LocalPeer

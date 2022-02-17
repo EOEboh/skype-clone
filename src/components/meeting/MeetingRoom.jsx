@@ -6,6 +6,7 @@ import StatusBar from '../statusBar/StatusBar';
 
 
 
+
 import { useHMSStore, useHMSActions, selectLocalPeer, selectRemotePeers } from '@100mslive/react-sdk';
 
 
@@ -22,23 +23,25 @@ const MeetingRoom = () => {
             hmsActions.leave();
           }}> Leave </button>
 
-        <div className={styles.peersContainer}>
+        <div className={styles.borderRadius}>
           {peers.map((peer) => (
             <Peer key={peer.id} peer={peer} />
           ))}
         </div>
 
-        <div className={styles.peersContainer} >
+        <div className={styles.borderRadius} >
           <LocalPeer localpeer={localpeer} />
-        </div>
+        </div> 
+        
         <StatusBar />
+        
         
       </div>
     );
 }
 
-export default MeetingRoom;
 
 const styles ={
   borderRadius: '50%'
 }
+export default MeetingRoom;
