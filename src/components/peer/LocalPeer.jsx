@@ -1,23 +1,30 @@
 import React from 'react'
 import { useVideo } from '@100mslive/react-sdk';
 
+// hook for styling
+import useStyles from './styles';
+
 const LocalPeer = ({localpeer}) => {
 
     const ref = useVideo(localpeer.videoTrack)
     
-    // const ref = useVideo(peer.videoTrack);
-    const width = '900px';
-    const height ='900px';
+    // Hook for styling
+    const classes = useStyles();
+    
+    
+    // const width = '900px';
+    // const height ='900px';
+
   return (
-    <div className="peer-container">
+    <div className={classes.peerContainer}>
       <video
         ref={ref}
         className={`peer-video ${localpeer.isLocal ? "local" : ""}`}
         autoPlay
         muted
         playsInlinev 
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
       />
       <div className="peer-name">
         {localpeer.name} {localpeer.isLocal ? "(You)" : ""}
@@ -27,3 +34,4 @@ const LocalPeer = ({localpeer}) => {
 }
 
 export default LocalPeer
+

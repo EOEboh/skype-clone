@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 
 
 import JoinForm from './components/joinForm/JoinForm';
-import Meeting from './components/meeting/Meeting';
+import MeetingRoom from './components/meeting/MeetingRoom';
 
 
 // 100ms SDK
@@ -58,7 +58,7 @@ function App() {
       </div>
 
       <div>
-    {isConnected ? ( <Meeting /> ) :(
+    {isConnected ? ( <MeetingRoom /> ) :(
       <Routes>
         <Route path='/joinform' element={<JoinForm />} /> 
       </Routes>  )}   
