@@ -11,9 +11,10 @@ import ChatContainer from '../chat/ChatContainer'
 import Button from '@mui/material/Button';
 import { Typography, TextField } from '@mui/material';
 import '@fontsource/roboto/300.css';
-import { borderRadius } from '@mui/system';
-// import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-// import BuildIcon from '@mui/icons-material/Build';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+
 
 
 
@@ -26,8 +27,8 @@ const JoinForm = () => {
 
     // state for the input name values
     const [ username, setUsername ] = useState({name: ''});
-
-    const role = 'host';
+    const [ role, setRole ] = useState('');
+    
 
         const handleUsernameChange = (e) => {
             setUsername((prevValues)=> ({
@@ -35,6 +36,10 @@ const JoinForm = () => {
                 [e.target.name]: e.target.value
             }));
         };
+
+        const handleRole = (e) => {
+            setRole(e.target.value)
+        }
         
         const JoinRoom = () => {
             getToken(role)
@@ -62,7 +67,6 @@ const JoinForm = () => {
         }
         
 
-
   return (
       <>
         <form className={classes.form}>
@@ -77,6 +81,22 @@ const JoinForm = () => {
                 onChange={handleUsernameChange}>    
             </TextField>
                 </div>
+                <div>
+
+                <InputLabel id="demo-simple-select-label">Role</InputLabel>
+            <Select
+                labelId="role"
+                    id="role"
+                    value={role}
+                 label="Role"
+                 onChange={handleRole}
+                 >
+                <MenuItem value='host'>Host</MenuItem>
+                <MenuItem value='guest'>Guest</MenuItem>
+                 <MenuItem value='handraise'>Handraise</MenuItem>
+             </Select>
+                </div>
+
                 <br/>                
                 <Button 
                     onClick={handleSubmit}
@@ -86,6 +106,7 @@ const JoinForm = () => {
                     Start Call
                 </Button>
         </form>
+        
         <ChatContainer />
         
         </>

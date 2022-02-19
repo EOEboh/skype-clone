@@ -12,20 +12,17 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-import { useAVToggle } from "@100mslive/react-sdk";
+import HideVideo from './HideVideo';
+import MuteAudio from './MuteAudio';
+import HandRaised from './HandRaised';
+import Leave from './Leave';
 
 
 const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 
 const StatusBar = () => {
-    const {
-        isLocalAudioEnabled,
-        isLocalVideoEnabled,
-        toggleAudio,
-        toggleVideo
-    } = useAVToggle();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     
@@ -92,14 +89,11 @@ const StatusBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex', justifyContent: 'space-around' } }}
           >
-        <button className='btn-control' onClick={toggleAudio}>
-             {isLocalAudioEnabled ? 'Mute' : 'Unmute'}
-         </button>
-
-         <button className='btn-control' onClick={toggleVideo}>
-            {isLocalVideoEnabled ? 'Hide' : 'Unhide'} 
-        </button>
-        
+            <HideVideo />
+            <MuteAudio />
+            <Leave />
+            <HandRaised />
+         
           </Typography>
           
         </Toolbar>

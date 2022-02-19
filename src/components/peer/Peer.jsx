@@ -1,6 +1,8 @@
 import React from 'react'
 import { useVideo } from '@100mslive/react-sdk';
 
+import HandRaiseBadge from './HandRaiseBadge';
+
 const Peer = ({peer}) => {
 
     const ref = useVideo(peer.videoTrack);
@@ -15,12 +17,15 @@ const Peer = ({peer}) => {
         className={`peer-video ${peer.isLocal ? "local" : ""}`}
         autoPlay
         muted
-        playsInlinev 
+        playsinlinev 
         // width={width}
         // height={height}
       />
       <div className="peer-name">
         {peer.name} 
+      </div>
+      <div>
+        {peer.roleName === 'handraise' && <HandRaiseBadge />} 
       </div>
     </div>
   );

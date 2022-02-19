@@ -19,10 +19,7 @@ const MeetingRoom = () => {
     return (
       <div className="meetingroom-section">
         <h2>Hi and Welcome</h2>
-          <button onClick={() => {
-            hmsActions.leave();
-          }}> Leave </button>
-
+          
         <div className={styles.borderRadius}>
           {peers.map((peer) => (
             <Peer key={peer.id} peer={peer} />

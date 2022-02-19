@@ -1,6 +1,8 @@
 import React from 'react'
 import { useVideo } from '@100mslive/react-sdk';
 
+import HandRaiseBadge from './HandRaiseBadge';
+
 // hook for styling
 import useStyles from './styles';
 
@@ -22,19 +24,25 @@ const LocalPeer = ({localpeer}) => {
         className={`peer-video ${localpeer.isLocal ? "local" : ""}`}
         autoPlay
         muted
-        playsInlinev 
+        playsinlinev 
         // width={width}
         // height={height}
       />
       <div className="peer-name">
         {localpeer.name} {localpeer.isLocal ? "(You)" : ""}
       </div>
+      <div>
+        {localpeer.roleName === 'handraise' && <HandRaiseBadge />} 
+      </div>
     </div>
   );
 }
 
 const styles ={
-  borderRadius: '50%',
+  borderRadius: {
+    position: 'relative',
+  
+  }
   
 }
 

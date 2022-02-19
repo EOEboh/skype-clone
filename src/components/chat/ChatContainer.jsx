@@ -19,6 +19,7 @@ import {
     const sendMessage = () => {
       hmsActions.sendBroadcastMessage(chatInput);
       setChatInput('');
+      
     };
 
     React.useEffect(() => {
