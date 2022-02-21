@@ -18,7 +18,7 @@ import HandRaised from './HandRaised';
 import Leave from './Leave';
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Pricing', <HandRaised />];
 
 
 

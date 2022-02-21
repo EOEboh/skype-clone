@@ -14,4 +14,5 @@ export default async function getToken(role) {
   const { token } = await response.json();
 
   return token;
+  
 }

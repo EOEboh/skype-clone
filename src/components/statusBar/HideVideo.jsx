@@ -10,7 +10,6 @@ const HideVideo = () => {
         toggleVideo
     } = useAVToggle();
 
-
   return (
     <button className='btn-control' onClick={toggleVideo}>
             {isLocalVideoEnabled ? <BsCameraVideoFill /> : <BsCameraVideoOffFill />} 

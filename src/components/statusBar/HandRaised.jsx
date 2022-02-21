@@ -22,7 +22,6 @@ const HandRaised = () => {
     <button className='btn-control' onClick={toggleHandRaised}>
         { !isHandRaised ? 'Raise Hand' : 'Raised' }
     </button>
-    
     </>
   )
 }

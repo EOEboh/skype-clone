@@ -83,7 +83,7 @@ const JoinForm = () => {
                 </div>
                 <div>
 
-                <InputLabel id="demo-simple-select-label">Role</InputLabel>
+                <InputLabel id="role">Role</InputLabel>
             <Select
                 labelId="role"
                     id="role"

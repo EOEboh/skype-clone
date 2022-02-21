@@ -6,7 +6,6 @@ import StatusBar from '../statusBar/StatusBar';
 
 
 
-
 import { useHMSStore, useHMSActions, selectLocalPeer, selectRemotePeers } from '@100mslive/react-sdk';
 
 

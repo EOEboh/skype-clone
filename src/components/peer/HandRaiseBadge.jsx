@@ -4,10 +4,11 @@ import { MdFrontHand } from 'react-icons/md';
 const HandRaiseBadge = () => {
   return (
     <div style={{ position: 'relative'}}>
-        <MdFrontHand style={{ fontSize: '50px', position: 'absolute', top: '2%', }} />
+        <MdFrontHand style={{ fontSize: '50px', position: 'absolute', }} />
     </div>
   )
 }
+
 
 
 export default HandRaiseBadge
