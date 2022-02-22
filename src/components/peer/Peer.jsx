@@ -12,6 +12,9 @@ const Peer = ({peer}) => {
     // const height ='500px';
   return (
     <div className="peer-container">
+      <div>
+        {peer.roleName === 'handraise' && <HandRaiseBadge />} 
+      </div>
       <video
         ref={ref}
         className={`peer-video ${peer.isLocal ? "local" : ""}`}
@@ -24,9 +27,7 @@ const Peer = ({peer}) => {
       <div className="peer-name">
         {peer.name} 
       </div>
-      <div>
-        {peer.roleName === 'handraise' && <HandRaiseBadge />} 
-      </div>
+      
     </div>
   );
 }

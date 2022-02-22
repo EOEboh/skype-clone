@@ -19,6 +19,9 @@ const LocalPeer = ({localpeer}) => {
 
   return (
     <div className={styles.borderRadius}>
+      <div>
+        {localpeer.roleName === 'handraise' && <HandRaiseBadge />} 
+      </div>
       <video
         ref={ref}
         className={`peer-video ${localpeer.isLocal ? "local" : ""}`}
@@ -31,9 +34,7 @@ const LocalPeer = ({localpeer}) => {
       <div className="peer-name">
         {localpeer.name} {localpeer.isLocal ? "(You)" : ""}
       </div>
-      <div>
-        {localpeer.roleName === 'handraise' && <HandRaiseBadge />} 
-      </div>
+      
     </div>
   );
 }
