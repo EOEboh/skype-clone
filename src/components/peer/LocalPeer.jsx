@@ -8,7 +8,9 @@ import useStyles from './styles';
 
 const LocalPeer = ({localpeer}) => {
 
-    const ref = useVideo(localpeer.videoTrack)
+      // for local peer (You)
+    const ref = useVideo(localpeer.videoTrack);
+
     
     // Hook for styling
     const classes = useStyles();
@@ -18,10 +20,11 @@ const LocalPeer = ({localpeer}) => {
     // const height ='900px';
 
   return (
-    <div className={styles.borderRadius}>
+    <div className="peer-container">
       <div>
         {localpeer.roleName === 'handraise' && <HandRaiseBadge />} 
       </div>
+      
       <video
         ref={ref}
         className={`peer-video ${localpeer.isLocal ? "local" : ""}`}
@@ -40,13 +43,6 @@ const LocalPeer = ({localpeer}) => {
 }
 
 
-const styles ={
-  borderRadius: {
-    position: 'relative',
-  
-  }
-  
-}
 
 export default LocalPeer
 

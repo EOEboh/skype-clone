@@ -69,25 +69,17 @@ function App() {
     { location.pathname == '/' && (
     <Card sx={styles.card}>
       <CardContent sx={styles.cardContent}>
+        
         <Typography  gutterBottom>
           Word of the Day
         </Typography>
-        <Typography >
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography >
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+        
       </CardContent>
+      
 
       <CardActions>
        <Box sx={styles.cardContent}>  
-       <Link to='/joinform'> 
+       <Link to='/joinform'  style={{textDecoration: 'none'}}> 
         <Button 
           type='submit'                 variant='contained' 
           sx={styles.joinFormButton}>
@@ -96,8 +88,8 @@ function App() {
         </Link>
         </Box>
       </CardActions>
-
-    </Card> )}
+      </Card>
+     )}
 
       
     </>
@@ -113,15 +105,14 @@ const styles = {
     margin: 'auto'
   },
   cardContent:{
-    textAlign:'center'
+    // textAlign:'center',
   },
   joinFormButton:{
     marginTop: '2rem',
     backgroundColor: '#00aff0',
     borderRadius: '90px',
     padding: '15px',
-    textAlign: 'center'
-}
+  }
 }
 
 export default App;
