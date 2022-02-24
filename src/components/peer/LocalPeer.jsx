@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useVideo } from '@100mslive/react-sdk';
 
 import HandRaiseBadge from './HandRaiseBadge';
@@ -14,10 +14,23 @@ const LocalPeer = ({localpeer}) => {
     
     // Hook for styling
     const classes = useStyles();
+
+    const [ screenWidth, setScreenWidth ] = useState(0);
+
+    const breakpoint = 610;
+
+    useEffect( () => {
+      const handleResizeWindow = () => setScreenWidth(window.innerWidth);
+
+      window.addEventListener("resize", handleResizeWindow);
+      return ()=> {
+        window.removeEventListener("resize", handleResizeWindow);
+      }
+    }, []);
     
     
-    // const width = '900px';
-    // const height ='900px';
+    
+    
 
   return (
     <div className="peer-container">
@@ -31,8 +44,8 @@ const LocalPeer = ({localpeer}) => {
         autoPlay
         muted
         playsinlinev 
-        // width={width}
-        // height={height}
+        
+        
       />
       <div className="peer-name">
         {localpeer.name} {localpeer.isLocal ? "(You)" : ""}

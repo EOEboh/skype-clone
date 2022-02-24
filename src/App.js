@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 // material UI
@@ -6,8 +6,9 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import { Typography, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 
 
 import JoinForm from './components/joinForm/JoinForm';
@@ -49,12 +50,21 @@ function App() {
     };
   }, [hmsActions, isConnected])
 
+  const [ meetingName, setMeetingName ] = useState('');
+
+  const handleMeetingName = (e) => {
+          setMeetingName((prevValues) => ({
+            ...prevValues, 
+            [e.target.meetingName]: e.target.value
+          }))
+  }
+
   
   return (
     <> 
   <div>
       <div> 
-    {isConnected ? 'Connected' : 'Not Connected Yet'}
+    {isConnected ? 'connect' : 'Not Connected Yet'}
       </div>
 
       <div>
@@ -73,6 +83,18 @@ function App() {
         <Typography  gutterBottom>
           Word of the Day
         </Typography>
+
+        <div>      
+            <TextField
+                id='name'
+                type='text'
+                name='name'
+                label='Name'
+                placeholder='Your name'
+                value={meetingName.name}
+                onChange={handleMeetingName}>    
+            </TextField>
+        </div>
         
       </CardContent>
       

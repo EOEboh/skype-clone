@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { useVideo } from '@100mslive/react-sdk';
 
 
@@ -7,10 +7,25 @@ import HandRaiseBadge from './HandRaiseBadge';
 const Peer = ({peer}) => {
 
     const ref = useVideo(peer.videoTrack);
+
+    
+    const [ screenWidth, setScreenWidth ] = useState(0);
+
+    const breakpoint = 610;
+
+    useEffect( () => {
+      const handleResizeWindow = () => setScreenWidth(window.innerWidth);
+
+      window.addEventListener("resize", handleResizeWindow);
+      return ()=> {
+        window.removeEventListener("resize", handleResizeWindow);
+      }
+    }, []);
     
     
-    // const width = '750px';
-    // const height ='500px';
+    // dynamic responsive layouts
+    let width = `${screenWidth}` >= `${breakpoint}` ? '390px' : '150px' || `${screenWidth}` <= '280px' ?'120px': '' ;
+    
   return (
      
     <div className="peer-container">
@@ -23,8 +38,7 @@ const Peer = ({peer}) => {
         autoPlay
         muted
         playsinlinev 
-        // width={width}
-        // height={height}
+        width={width}
       />
       <div className="peer-name">
         {peer.name} 
