@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React  from 'react';
 import { useVideo } from '@100mslive/react-sdk';
 
 
@@ -9,22 +9,22 @@ const Peer = ({peer}) => {
     const ref = useVideo(peer.videoTrack);
 
     
-    const [ screenWidth, setScreenWidth ] = useState(0);
+    // const [ screenWidth, setScreenWidth ] = useState(0);
 
-    const breakpoint = 610;
+    // const breakpoint = 610;
 
-    useEffect( () => {
-      const handleResizeWindow = () => setScreenWidth(window.innerWidth);
+    // useEffect( () => {
+    //   const handleResizeWindow = () => setScreenWidth(window.innerWidth);
 
-      window.addEventListener("resize", handleResizeWindow);
-      return ()=> {
-        window.removeEventListener("resize", handleResizeWindow);
-      }
-    }, []);
+    //   window.addEventListener("resize", handleResizeWindow);
+    //   return ()=> {
+    //     window.removeEventListener("resize", handleResizeWindow);
+    //   }
+    // }, []);
     
     
-    // dynamic responsive layouts
-    let width = `${screenWidth}` >= `${breakpoint}` ? '390px' : '150px' || `${screenWidth}` <= '280px' ?'120px': '' ;
+    // // dynamic responsive layouts
+    // let width = `${screenWidth}` >= `${breakpoint}` ? 'valuepx' : 'valuepx' || `${screenWidth}` <= 'valuepx' ?'valuepx': '' ;
     
   return (
      
@@ -38,7 +38,8 @@ const Peer = ({peer}) => {
         autoPlay
         muted
         playsinlinev 
-        width={width}
+        // width={width}
+        // style={{width: 'calc(85vw - 100px)'}}
       />
       <div className="peer-name">
         {peer.name} 

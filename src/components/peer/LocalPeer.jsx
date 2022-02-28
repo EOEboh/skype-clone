@@ -44,8 +44,7 @@ const LocalPeer = ({localpeer}) => {
         autoPlay
         muted
         playsinlinev 
-        
-        
+        // style={{width: 'calc(85vw - 100px)'}}      
       />
       <div className="peer-name">
         {localpeer.name} {localpeer.isLocal ? "(You)" : ""}

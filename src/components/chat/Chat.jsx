@@ -1,11 +1,12 @@
 import React from 'react';
+import { BsFillChatDotsFill } from 'react-icons/bs'
 
 const Chat = ({ msg }) => {
   return (
     <div>
-      <span>
-        {msg.senderName}
-      </span>
+      <b><span>
+        {msg.senderName}:
+      </span></b> &nbsp;
       <span>{msg.message}</span>
     </div>
   );

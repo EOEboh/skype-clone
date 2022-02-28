@@ -26,8 +26,11 @@ const MeetingRoom = () => {
     const peers = useHMSStore(selectRemotePeers);
     const localpeer = useHMSStore(selectLocalPeer);
 
+
+    // state to toggle chat 
     const [ seeChat, setSeeChat ] = useState(false);
 
+    // function to toggle chat
     const addChat = () => {
         setSeeChat(!seeChat)
     }  
@@ -54,12 +57,14 @@ const MeetingRoom = () => {
           </Item> 
         </Grid>
 
-       { seeChat ? (<Grid> 
+       { 
+          seeChat ? (<Grid> 
           <Item>  
             <ChatContainer />
           </Item>
-        </Grid>) : null }
-      </Grid>
+          </Grid>) : null 
+       }
+        </Grid>
  </Box>
  <br/>
         <StatusBar addChat={addChat}/>
