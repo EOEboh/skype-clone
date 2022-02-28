@@ -93,7 +93,6 @@ const JoinForm = () => {
                  >
                 <MenuItem value='host'>Host</MenuItem>
                 <MenuItem value='guest'>Guest</MenuItem>
-                 <MenuItem value='handraise'>Handraise</MenuItem>
              </Select>
                 </div>
 
@@ -107,7 +106,7 @@ const JoinForm = () => {
                 </Button>
         </form>
         
-        <ChatContainer />
+        
         
         </>
   )

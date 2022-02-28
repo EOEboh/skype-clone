@@ -1,13 +1,15 @@
 import React from 'react'
 
-import { useHMSStore, useHMSActions, selectLocalPeer,} from '@100mslive/react-sdk'
+import { useHMSStore, useHMSActions, selectLocalPeer,} from '@100mslive/react-sdk';
+
+import {  MdOutlineFrontHand, MdFrontHand } from 'react-icons/md';
 
 const HandRaised = () => {
     
     const peer = useHMSStore(selectLocalPeer);
     const hmsActions = useHMSActions();
 
-    const isHandRaised = peer.roleName === 'handraise';
+    const isHandRaised = peer;
     
     const toggleHandRaised = () => {
         hmsActions.changeRole(
@@ -20,7 +22,7 @@ const HandRaised = () => {
       <> 
       
     <button className='btn-control' onClick={toggleHandRaised}>
-        { !isHandRaised ? 'Raise Hand' : 'Hand Raised' }
+        { !isHandRaised ? (<MdOutlineFrontHand />) : (<MdFrontHand />) }
     </button>
     </>
   )

@@ -16,13 +16,15 @@ import HideVideo from './HideVideo';
 import MuteAudio from './MuteAudio';
 import HandRaised from './HandRaised';
 import Leave from './Leave';
+import ShowChat from './ShowChat';
+import ChatContainer from '../chat/ChatContainer';
 
 
-const pages = ['Products', 'Pricing', <HandRaised />];
+const pages = ['Products', 'Pricing'];
 
 
 
-const StatusBar = () => {
+const StatusBar = ({addChat}) => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     
@@ -37,9 +39,9 @@ const StatusBar = () => {
               };
             
 
-
   return (
     
+    <>
         <AppBar position="static">
        <Container maxWidth="xl">
          <Toolbar disableGutters>
@@ -93,12 +95,15 @@ const StatusBar = () => {
             <MuteAudio />
             <Leave />
             <HandRaised />
+            <ShowChat addChat={addChat}/>
+    
          
           </Typography>
           
         </Toolbar>
       </Container>
     </AppBar>
+    </>
 
     
   );

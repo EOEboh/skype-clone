@@ -10,6 +10,8 @@ import { Typography, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 
+import StatusBar from './components/statusBar/StatusBar'
+
 
 import JoinForm from './components/joinForm/JoinForm';
 import MeetingRoom from './components/meeting/MeetingRoom';
@@ -64,7 +66,7 @@ function App() {
     <> 
   <div>
       <div> 
-    {isConnected ? 'connect' : 'Not Connected Yet'}
+    {isConnected ? 'Connected' : 'Not Connected Yet'}
       </div>
 
       <div>

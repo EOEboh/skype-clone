@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHMSStore, selectLocalPeer, selectRemotePeers } from '@100mslive/react-sdk';
 
 import { styled } from '@mui/material/styles';
@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 
 import Peer from '../peer/Peer';
 import LocalPeer from '../peer/LocalPeer';
+import ChatContainer from '../chat/ChatContainer';
 import StatusBar from '../statusBar/StatusBar';
 
 
@@ -24,31 +25,44 @@ const Item = styled(Paper)(({ theme }) => ({
 const MeetingRoom = () => {
     const peers = useHMSStore(selectRemotePeers);
     const localpeer = useHMSStore(selectLocalPeer);
+
+    const [ seeChat, setSeeChat ] = useState(false);
+
+    const addChat = () => {
+        setSeeChat(!seeChat)
+    }  
+
     
 
     return (
        <> 
         <h2>Welcome {localpeer.name}</h2>
         
-      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1}>
-      <Grid item xs={6} md={4} sm={6}>
-        <Item>
-          {peers.map((peer) => (
+  <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+         <Grid item xs={6} md={4} sm={8}>
+           <Item>
+            {peers.map((peer) => (
             <Peer key={peer.id} peer={peer} />
           ))}
-        </Item>
+           </Item>
         </Grid>
 
-        <Grid item xs={12} md={12} sm={12}>
-        <Item>
-          <LocalPeer localpeer={localpeer} />
-        </Item> 
+        <Grid item xs={12} md={6} sm={12}>
+          <Item>
+            <LocalPeer localpeer={localpeer} />
+          </Item> 
         </Grid>
-        
-        </Grid>
-     </Box>
-        <StatusBar />
+
+       { seeChat ? (<Grid> 
+          <Item>  
+            <ChatContainer />
+          </Item>
+        </Grid>) : null }
+      </Grid>
+ </Box>
+ <br/>
+        <StatusBar addChat={addChat}/>
         </>
         
       

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     useHMSStore,
     selectHMSMessages,
     useHMSActions,
-  } from '@100mslive/hms-video-react';
+  } from '@100mslive/react-sdk';
 
   import ChatFeed from './ChatFeed';
   import ChatInput from './ChatInput';
@@ -13,7 +13,7 @@ import {
   const ChatContainer = () => {
     const hmsActions = useHMSActions();
     const storeMessages = useHMSStore(selectHMSMessages);
-    const [chatInput, setChatInput] = React.useState('');
+    const [chatInput, setChatInput] = useState('');
 
 
     const sendMessage = () => {
@@ -21,8 +21,9 @@ import {
       setChatInput('');
       
     };
+    
 
-    React.useEffect(() => {
+    useEffect(() => {
       const el = document.getElementById('chat-feed');
       if (el) {
         el.scrollTop = el.scrollHeight;
