@@ -14,7 +14,7 @@ const HandRaised = () => {
     const toggleHandRaised = () => {
         hmsActions.changeRole(
             peer.id,
-            peer.roleName === 'host' ? 'handraise' : `${peer.roleName}`, true
+            peer.roleName === 'guest' ? 'handraise' : 'guest', true
         )
     } 
 
