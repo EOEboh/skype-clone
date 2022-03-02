@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsFillChatDotsFill } from 'react-icons/bs'
+
 
 const Chat = ({ msg }) => {
   return (

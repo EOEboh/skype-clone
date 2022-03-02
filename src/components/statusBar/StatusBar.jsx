@@ -18,13 +18,14 @@ import HandRaised from './HandRaised';
 import Leave from './Leave';
 import ShowChat from './ShowChat';
 import ChatContainer from '../chat/ChatContainer';
+import ScreenShare from './ScreenShare';
 
 
 const pages = ['Products', 'Pricing'];
 
 
 
-const StatusBar = ({addChat}) => {
+const StatusBar = ({toggleChat,toggleScreen}) => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     
@@ -95,7 +96,8 @@ const StatusBar = ({addChat}) => {
             <MuteAudio />
             <Leave />
             <HandRaised />
-            <ShowChat addChat={addChat}/>
+            <ShowChat toggleChat={toggleChat}/>
+            <ScreenShare toggleScreen={toggleScreen}/>
     
          
           </Typography>

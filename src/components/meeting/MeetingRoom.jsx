@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHMSStore, selectLocalPeer, selectRemotePeers } from '@100mslive/react-sdk';
+import { useHMSStore, useHMSActions, selectLocalPeer, selectRemotePeers, selectIsLocalScreenShared } from '@100mslive/react-sdk';
 
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import Peer from '../peer/Peer';
 import LocalPeer from '../peer/LocalPeer';
 import ChatContainer from '../chat/ChatContainer';
+import Screen from '../peer/Screen';
 import StatusBar from '../statusBar/StatusBar';
 
 
@@ -25,19 +26,27 @@ const Item = styled(Paper)(({ theme }) => ({
 const MeetingRoom = () => {
     const peers = useHMSStore(selectRemotePeers);
     const localpeer = useHMSStore(selectLocalPeer);
+    const hmsActions = useHMSActions();
+
+    // for screen sharing
+    const isLocalScreenShared = useHMSStore(selectIsLocalScreenShared);
 
 
     // state to toggle chat 
     const [ seeChat, setSeeChat ] = useState(false);
 
     // function to toggle chat
-    const addChat = () => {
+    const toggleChat = () => {
         setSeeChat(!seeChat)
     }  
 
-    
+      // function to toggle screenshare
+     const toggleScreen = async () => {
+    await hmsActions.setScreenShareEnabled(!isLocalScreenShared);
+  }
 
-    return (
+    
+return (
        <> 
         <h2>Welcome {localpeer.name}</h2>
         
@@ -66,8 +75,12 @@ const MeetingRoom = () => {
        }
         </Grid>
  </Box>
+        <div style={{ width: 'calc(90vw - 100px)' }}>             
+           <Screen isLocal={false} peer={peers}/>                
+         </div>
  <br/>
-        <StatusBar addChat={addChat}/>
+        <StatusBar toggleChat={toggleChat}
+        toggleScreen={toggleScreen}/>
         </>
         
       

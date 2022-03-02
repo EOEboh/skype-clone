@@ -4,11 +4,11 @@ import { BsFillChatDotsFill } from 'react-icons/bs'
 
 
 
-const ShowChat = ({addChat}) => {
+const ShowChat = ({toggleChat}) => {
 
   return (
     <>
-        <button onClick={addChat}>
+        <button onClick={toggleChat}>
             <BsFillChatDotsFill />
         </button>
     </>
