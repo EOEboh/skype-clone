@@ -15,45 +15,39 @@ const LocalPeer = ({localpeer}) => {
     // Hook for styling
     const classes = useStyles();
 
-    const [ screenWidth, setScreenWidth ] = useState(0);
-
-    const breakpoint = 610;
-
-    useEffect( () => {
-      const handleResizeWindow = () => setScreenWidth(window.innerWidth);
-
-      window.addEventListener("resize", handleResizeWindow);
-      return ()=> {
-        window.removeEventListener("resize", handleResizeWindow);
-      }
-    }, []);
     
-    
-    
-    
+    let width = '350px'
+     
 
   return (
-    <div className="peer-container">
+    <div>
       <div>
         {localpeer.roleName === 'handraise' && <HandRaiseBadge />} 
       </div>
       
       <video
         ref={ref}
-        className={`peer-video ${localpeer.isLocal ? "local" : ""}`}
+        className={` ${localpeer.isLocal ? "local" : ""}`}
+        style={styles.video}
         autoPlay
         muted
         playsinlinev 
-        // style={{width: 'calc(85vw - 100px)'}}      
+        width={width}      
       />
-      <div className="peer-name">
-        {localpeer.name} {localpeer.isLocal ? "(You)" : ""}
+      <div>
+        <h2><b>{localpeer.name} {localpeer.isLocal && "(You)" }</b></h2>
       </div>
       
     </div>
   );
 }
 
+const styles ={
+  video:{
+    borderRadius: '10px',
+    width: '100%'
+  }
+}
 
 
 export default LocalPeer

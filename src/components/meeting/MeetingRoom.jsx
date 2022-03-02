@@ -48,11 +48,14 @@ const MeetingRoom = () => {
     
 return (
        <> 
+  <div style={styles.room}>
+      <div style={styles.name}>
         <h2>Welcome {localpeer.name}</h2>
+      </div>
         
-  <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-         <Grid item xs={6} md={4} sm={8}>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+         <Grid item xs={6} md={4} sm={6}>
            <Item>
             {peers.map((peer) => (
             <Peer key={peer.id} peer={peer} />
@@ -60,7 +63,7 @@ return (
            </Item>
         </Grid>
 
-        <Grid item xs={12} md={6} sm={12}>
+        <Grid item xs={12} md={8} sm={12}>
           <Item>
             <LocalPeer localpeer={localpeer} />
           </Item> 
@@ -78,15 +81,24 @@ return (
         <div style={{ width: 'calc(90vw - 100px)' }}>             
            <Screen isLocal={false} peer={peers}/>                
          </div>
- <br/>
+           <br/>
         <StatusBar toggleChat={toggleChat}
         toggleScreen={toggleScreen}/>
+    </div>
         </>
         
       
     );
 }
 
-
+const styles ={
+  room :{
+    backgroundColor: '#1b394a',
+    padding: '0.5rem'
+  },
+  name: {
+    color: '#ffffff'
+  }
+}
 
 export default MeetingRoom;

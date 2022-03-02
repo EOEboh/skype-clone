@@ -11,10 +11,22 @@ const HideVideo = () => {
     } = useAVToggle();
 
   return (
-    <button className='btn-control' onClick={toggleVideo}>
+    <button className='btn-control'
+     onClick={toggleVideo}
+     style={styles.button}>
             {isLocalVideoEnabled ? <BsCameraVideoFill /> : <BsCameraVideoOffFill />} 
         </button>
   )
 }
+
+const styles ={
+  button: {
+    borderRadius: '50%',
+    fontSize: '30px',
+    backgroundColor: '#00aff0',
+    border: 'none'
+  }
+}
+
 
 export default HideVideo

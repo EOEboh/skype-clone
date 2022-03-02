@@ -21,7 +21,7 @@ import ChatContainer from '../chat/ChatContainer';
 import ScreenShare from './ScreenShare';
 
 
-const pages = ['Products', 'Pricing'];
+// const pages = ['Products', 'Pricing'];
 
 
 
@@ -38,70 +38,31 @@ const StatusBar = ({toggleChat,toggleScreen}) => {
     const handleCloseNavMenu = () => {
                 setAnchorElNav(null);
               };
+
             
 
   return (
     
     <>
-        <AppBar position="static">
+        <AppBar position="static" style={{background: '#787878'}}>
        <Container maxWidth="xl">
          <Toolbar disableGutters>
          
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-              sx={{ position: 'absolute', top: '50%', bottom: '50%', right: 0}}
-              
-            >
-              <MenuIcon />
-            </IconButton>
-            
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex', justifyContent: 'space-around' } }}
+            sx={styles.typography}
           >
-            <HideVideo />
             <MuteAudio />
+            <HideVideo />
             <Leave />
+            </Typography>
+          
             <HandRaised />
             <ShowChat toggleChat={toggleChat}/>
-            <ScreenShare toggleScreen={toggleScreen}/>
-    
-         
-          </Typography>
-          
+            <ScreenShare toggleScreen={toggleScreen}/> 
+                     
         </Toolbar>
       </Container>
     </AppBar>
@@ -110,6 +71,14 @@ const StatusBar = ({toggleChat,toggleScreen}) => {
     
   );
 }
+
+const styles = {
+  typography : {
+      flexGrow: 1,
+      display: { xs: 'flex', md: 'flex', justifyContent: 'center' },
+  }
+}
+
 
 export default StatusBar
 

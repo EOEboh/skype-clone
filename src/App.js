@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import './App.css';
 
 // material UI
 import Box from '@mui/material/Box';

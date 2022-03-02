@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHMSStore, selectIsLocalScreenShared } from '@100mslive/react-sdk';
+import { FiShare } from 'react-icons/fi'
 
 
 const ScreenShare = ({toggleScreen}) => {
@@ -10,10 +11,21 @@ const ScreenShare = ({toggleScreen}) => {
     <button
       onClick={toggleScreen}
       active={!isLocalScreenShared}
+      style={styles.button}
     >
-        {isLocalScreenShared ? "Unshare" : "Share Screen"} 
+        {isLocalScreenShared ? "Unshare" : <FiShare />} 
     </button>
   )
+}
+
+const styles ={
+  button: {
+    borderRadius: '50%',
+    fontSize: '30px',
+    color: '#ffffff',
+    backgroundColor: '#00aff0',
+    border: 'none'
+  }
 }
 
 export default ScreenShare;

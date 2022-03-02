@@ -6,49 +6,37 @@ import HandRaiseBadge from './HandRaiseBadge';
 
 const Peer = ({peer}) => {
 
-    const ref = useVideo(peer.videoTrack);
+  const ref = useVideo(peer.videoTrack);
+  const width = '250px';
 
-    
-    // const [ screenWidth, setScreenWidth ] = useState(0);
-
-    // const breakpoint = 610;
-
-    // useEffect( () => {
-    //   const handleResizeWindow = () => setScreenWidth(window.innerWidth);
-
-    //   window.addEventListener("resize", handleResizeWindow);
-    //   return ()=> {
-    //     window.removeEventListener("resize", handleResizeWindow);
-    //   }
-    // }, []);
-    
-    
-    // // dynamic responsive layouts
-    // let width = `${screenWidth}` >= `${breakpoint}` ? 'valuepx' : 'valuepx' || `${screenWidth}` <= 'valuepx' ?'valuepx': '' ;
-    
-  return (
+return (
      
-    <div className="peer-container">
+    <div>
       <div>
         {peer.roleName === 'handraise' && <HandRaiseBadge />} 
       </div>
       <video
-        ref={ref}
-        className={`peer-video ${peer.isLocal ? "local" : ""}`}
+        ref={ref} 
+        style={styles.video}
         autoPlay
         muted
         playsinlinev 
-        // width={width}
-        // style={{width: 'calc(85vw - 100px)'}}
+        width={width}
+        
       />
-      <div className="peer-name">
-        {peer.name} 
+      <div>
+        <b>{peer.name} {!peer.isLocal && `(${peer.roleName})`}</b> 
       </div>
       
     </div>
     
   );
 }
-
+const styles ={
+  video:{
+    borderRadius: '10px',
+    width: '100%'
+  }
+}
 
 export default Peer

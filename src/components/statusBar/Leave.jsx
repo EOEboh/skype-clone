@@ -8,8 +8,21 @@ const Leave = () => {
   return (
     <button onClick={() => {
         hmsActions.leave();
-      }}> <FcEndCall /> </button>
+      }}
+      style={styles.button}>
+       <FcEndCall /> 
+    </button>
   )
+}
+
+const styles ={
+  button: {
+    borderRadius: '50%',
+    fontSize: '30px',
+    backgroundColor: 'red',
+    color: '#fff',
+    border: 'none'
+  }
 }
 
 

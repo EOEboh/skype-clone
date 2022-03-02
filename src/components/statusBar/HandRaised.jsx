@@ -21,11 +21,21 @@ const HandRaised = () => {
   return (
       <> 
       
-    <button className='btn-control' onClick={toggleHandRaised}>
+    <button className='btn-control' onClick={toggleHandRaised}
+     style={styles.button}>
         { !isHandRaised ? (<MdOutlineFrontHand />) : (<MdFrontHand />) }
     </button>
     </>
   )
 }
+
+const styles ={
+  button: {
+    borderRadius: '50%',
+    fontSize: '30px',
+    border: 'none'
+  }
+}
+
 
 export default HandRaised
