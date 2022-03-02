@@ -63,12 +63,12 @@ return (
            </Item>
         </Grid>
 
-        <Grid item xs={12} md={8} sm={12}>
+        <Grid item xs={12} md={6} sm={12}>
           <Item>
             <LocalPeer localpeer={localpeer} />
           </Item> 
         </Grid>
-
+          <br />
        { 
           seeChat ? (<Grid> 
           <Item>  

@@ -21,7 +21,8 @@ const styles ={
     fontSize: '30px',
     backgroundColor: 'red',
     color: '#fff',
-    border: 'none'
+    border: 'none',
+    cursor: 'pointer'
   }
 }
 

@@ -24,7 +24,8 @@ const styles ={
     borderRadius: '50%',
     fontSize: '30px',
     backgroundColor: '#00aff0',
-    border: 'none'
+    border: 'none',
+    cursor: 'pointer'
   }
 }
 

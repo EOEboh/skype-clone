@@ -19,7 +19,8 @@ const styles ={
   button: {
     borderRadius: '50%',
     fontSize: '30px',
-    border: 'none'
+    border: 'none',
+    cursor: 'pointer'
   }
 }
 
