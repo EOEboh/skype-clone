@@ -18,7 +18,7 @@ const Leave = () => {
 const styles ={
   button: {
     borderRadius: '50%',
-    fontSize: '30px',
+    fontSize: '22px',
     backgroundColor: 'red',
     color: '#fff',
     border: 'none',

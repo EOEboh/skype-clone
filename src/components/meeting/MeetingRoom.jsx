@@ -12,6 +12,20 @@ import ChatContainer from '../chat/ChatContainer';
 import Screen from '../peer/Screen';
 import StatusBar from '../statusBar/StatusBar';
 
+// material ui
+import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemText from '@mui/material/ListItemText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
+import PersonIcon from '@mui/icons-material/Person';
+import AddIcon from '@mui/icons-material/Add';
+import Typography from '@mui/material/Typography';
+import { blue } from '@mui/material/colors';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -42,9 +56,26 @@ const MeetingRoom = () => {
 
       // function to toggle screenshare
      const toggleScreen = async () => {
-    await hmsActions.setScreenShareEnabled(!isLocalScreenShared);
+      await hmsActions.setScreenShareEnabled(!isLocalScreenShared);
   }
 
+  // material ui functions
+  const emails = ['username@gmail.com', 'user02@gmail.com'];
+  const { onClose } = 'props';
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleListItemClick = (value) => {
+    onClose(value);
+  };
     
 return (
        <> 
@@ -78,12 +109,32 @@ return (
        }
         </Grid>
  </Box>
+
+  <div>
+       <Dialog onClose={handleClose} open={open}>
+      <DialogTitle>Set backup account</DialogTitle>
+      <List sx={{ pt: 0 }}>
+        {peers.map((peer) => (
+          <ListItem button onClick={() => handleListItemClick(peer)} key={peer.id}>
+            <ListItemAvatar>
+              <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
+                <PersonIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={peer.name} />
+          </ListItem>
+        ))}
+      </List>
+    </Dialog>
+  );
+ </div>
         <div style={{ width: 'calc(90vw - 100px)' }}>             
            <Screen isLocal={false} peer={peers}/>                
          </div>
            <br/>
         <StatusBar toggleChat={toggleChat}
-        toggleScreen={toggleScreen}/>
+        toggleScreen={toggleScreen}
+          handleClickOpen={handleClickOpen}/>
     </div>
         </>
         

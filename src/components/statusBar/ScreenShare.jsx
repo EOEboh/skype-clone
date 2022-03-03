@@ -21,7 +21,7 @@ const ScreenShare = ({toggleScreen}) => {
 const styles ={
   button: {
     borderRadius: '50%',
-    fontSize: '30px',
+    fontSize: '22px',
     color: '#ffffff',
     backgroundColor: '#00aff0',
     border: 'none',

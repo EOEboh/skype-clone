@@ -22,7 +22,7 @@ const HideVideo = () => {
 const styles ={
   button: {
     borderRadius: '50%',
-    fontSize: '30px',
+    fontSize: '22px',
     backgroundColor: '#00aff0',
     border: 'none',
     cursor: 'pointer'

@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
+import Participants from './Participants';
 import HideVideo from './HideVideo';
 import MuteAudio from './MuteAudio';
 import HandRaised from './HandRaised';
@@ -25,7 +26,7 @@ import ScreenShare from './ScreenShare';
 
 
 
-const StatusBar = ({toggleChat,toggleScreen}) => {
+const StatusBar = ({toggleChat,toggleScreen, handleClickOpen}) => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     
@@ -47,7 +48,7 @@ const StatusBar = ({toggleChat,toggleScreen}) => {
         <AppBar position="static" style={{background: '#787878'}}>
        <Container maxWidth="xl">
          <Toolbar disableGutters>
-         
+          <Participants handleClickOpen={handleClickOpen}/>
           <Typography
             variant="h6"
             noWrap

@@ -32,7 +32,7 @@ const HandRaised = () => {
 const styles ={
   button: {
     borderRadius: '50%',
-    fontSize: '30px',
+    fontSize: '22px',
     border: 'none',
     cursor: 'pointer'
   }

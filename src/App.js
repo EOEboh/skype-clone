@@ -64,13 +64,13 @@ function App() {
   
   return (
     <> 
-  <div>
+  <div>   
       <div> 
-    {isConnected ? 'Connected' : 'Not Connected Yet'}
+        {isConnected ? 'Connected' : 'Not Connected Yet'}
       </div>
 
       <div>
-    {isConnected ? ( <MeetingRoom /> ) :(
+        {isConnected ? ( <MeetingRoom /> ) :(
       <Routes>
         <Route path='/joinform' element={<JoinForm />} /> 
       </Routes>  )}   
