@@ -52,21 +52,20 @@ function App() {
     };
   }, [hmsActions, isConnected])
 
+  // state for the meeting name
   const [ meetingName, setMeetingName ] = useState('');
 
+  // function for the meeting name
   const handleMeetingName = (e) => {
-          setMeetingName((prevValues) => ({
-            ...prevValues, 
-            [e.target.meetingName]: e.target.value
-          }))
+          setMeetingName(e.target.value)
   }
 
   
   return (
     <> 
   <div>   
-      <div> 
-        {isConnected ? 'Connected' : 'Not Connected Yet'}
+      <div style={styles.connected}> 
+        {isConnected ? `${meetingName}` : 'Not Connected Yet'}
       </div>
 
       <div>
@@ -83,7 +82,9 @@ function App() {
       <CardContent sx={styles.cardContent}>
         
         <Typography  gutterBottom>
-          Word of the Day
+          <b> 
+            Hi, you are welcome!<br/>
+            Input A Meeting Name </b>
         </Typography>
 
         <div>      
@@ -91,9 +92,9 @@ function App() {
                 id='name'
                 type='text'
                 name='name'
-                label='Name'
-                placeholder='Your name'
-                value={meetingName.name}
+                placeholder='Meeting Name'
+                required
+                value={meetingName}
                 onChange={handleMeetingName}>    
             </TextField>
         </div>
@@ -105,9 +106,10 @@ function App() {
        <Box sx={styles.cardContent}>  
        <Link to='/joinform'  style={{textDecoration: 'none'}}> 
         <Button 
-          type='submit'                 variant='contained' 
+          type='submit' 
+          variant='contained' 
           sx={styles.joinFormButton}>
-          Make A Free Call Today
+          Create A Free Video Call
         </Button>
         </Link>
         </Box>
@@ -124,12 +126,18 @@ function App() {
 
 
 const styles = {
+  connected:{
+    backgroundColor: '#00aff0',
+    width: '50%',
+    textAlign: 'center',
+    fontSize: '20px',
+    padding: '0.5rem',
+    margin: 'auto',
+    borderRadius: '2px'
+  },
   card:{
     width: '50%',
     margin: 'auto'
-  },
-  cardContent:{
-    // textAlign:'center',
   },
   joinFormButton:{
     marginTop: '2rem',

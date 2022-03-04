@@ -6,15 +6,15 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
+
 import Peer from '../peer/Peer';
 import LocalPeer from '../peer/LocalPeer';
 import ChatContainer from '../chat/ChatContainer';
 import Screen from '../peer/Screen';
 import StatusBar from '../statusBar/StatusBar';
 
-// material ui
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
+// material ui components
+
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -23,8 +23,6 @@ import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import PersonIcon from '@mui/icons-material/Person';
-import AddIcon from '@mui/icons-material/Add';
-import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
 
 
@@ -112,7 +110,7 @@ return (
 
   <div>
        <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Set backup account</DialogTitle>
+      <DialogTitle>{peers.length} Participants In This Meeting With You</DialogTitle>
       <List sx={{ pt: 0 }}>
         {peers.map((peer) => (
           <ListItem button onClick={() => handleListItemClick(peer)} key={peer.id}>
@@ -126,7 +124,7 @@ return (
         ))}
       </List>
     </Dialog>
-  );
+  
  </div>
         <div style={{ width: 'calc(90vw - 100px)' }}>             
            <Screen isLocal={false} peer={peers}/>                
@@ -137,12 +135,10 @@ return (
           handleClickOpen={handleClickOpen}/>
     </div>
         </>
-        
-      
-    );
+  );
 }
 
-const styles ={
+const styles = {
   room :{
     backgroundColor: '#1b394a',
     padding: '0.5rem'

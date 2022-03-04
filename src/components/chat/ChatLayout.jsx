@@ -1,14 +1,16 @@
 import React from 'react';
 
+
 const ChatLayout = ({ children }) => {
   return (
     <div>
       <div>
-        Messages
+        <b>Chat</b>
       </div>
       {children}
     </div>
   );
 };
+
 
 export default ChatLayout;

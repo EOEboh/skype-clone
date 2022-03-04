@@ -1,16 +1,10 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+
 
 import Participants from './Participants';
 import HideVideo from './HideVideo';
@@ -18,7 +12,6 @@ import MuteAudio from './MuteAudio';
 import HandRaised from './HandRaised';
 import Leave from './Leave';
 import ShowChat from './ShowChat';
-import ChatContainer from '../chat/ChatContainer';
 import ScreenShare from './ScreenShare';
 
 
@@ -27,25 +20,10 @@ import ScreenShare from './ScreenShare';
 
 
 const StatusBar = ({toggleChat,toggleScreen, handleClickOpen}) => {
-
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    
-
-    const handleOpenNavMenu = (event) => {
-            setAnchorElNav(event.currentTarget);
-          };
-    
-
-    const handleCloseNavMenu = () => {
-                setAnchorElNav(null);
-              };
-
-            
-
   return (
     
     <>
-        <AppBar position="static" style={{background: '#787878'}}>
+  <AppBar position="static" style={{background: '#787878'}}>
        <Container maxWidth="xl">
          <Toolbar disableGutters>
           <Participants handleClickOpen={handleClickOpen}/>
@@ -65,8 +43,8 @@ const StatusBar = ({toggleChat,toggleScreen, handleClickOpen}) => {
             <ScreenShare toggleScreen={toggleScreen}/> 
                      
         </Toolbar>
-      </Container>
-    </AppBar>
+       </Container>
+  </AppBar>
     </>
 
     

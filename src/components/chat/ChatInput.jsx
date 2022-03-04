@@ -1,8 +1,12 @@
 import React from 'react';
+import InputEmoji from 'react-input-emoji';
+
 
 const ChatInput = ({ value, onChange, onKeyPress }) => {
   return (
+    <> 
     <input
+      style={styles.input}
       value={value}
       onChange={onChange}
       type='text'
@@ -18,7 +22,20 @@ const ChatInput = ({ value, onChange, onKeyPress }) => {
         }
       }}
     />
+     
+  
+</>
   );
 };
+
+const styles = {
+  input: {
+    padding: '12px 20px',
+    margin: '8px 0',
+    boxSizing: 'border-box',
+    outline: 'none',
+    borderColor: '#00aff0'
+  }
+}
 
 export default ChatInput;

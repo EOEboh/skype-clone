@@ -1,13 +1,13 @@
 import React from 'react';
-
 import { BsPeople } from 'react-icons/bs';
 
 const Participants = ({handleClickOpen}) => {
   return (
+     
     <button onClick={handleClickOpen}
      style={styles.button}>
         <BsPeople />
-  </button>
+    </button>    
   ) }
 
 

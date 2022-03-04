@@ -9,6 +9,8 @@ import {
   import ChatInput from './ChatInput';
   import ChatLayout from './ChatLayout';
   import Chat from './Chat';
+
+  
   
   const ChatContainer = () => {
     const hmsActions = useHMSActions();
@@ -50,6 +52,7 @@ import {
             sendMessage();
           }}
         />
+       
       </ChatLayout>
     );
   };
