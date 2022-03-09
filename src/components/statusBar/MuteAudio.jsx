@@ -8,8 +8,9 @@ const MuteAudio = () => {
         isLocalAudioEnabled,
         toggleAudio,
     } = useAVToggle();
+
   return (
-    <button className='btn-control'
+    <button 
      onClick={toggleAudio}
      style={styles.button}>
              {isLocalAudioEnabled ? <BsFillMicFill /> : <BsFillMicMuteFill />}
