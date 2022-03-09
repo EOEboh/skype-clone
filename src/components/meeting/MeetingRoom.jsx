@@ -58,7 +58,6 @@ const MeetingRoom = () => {
   }
 
   // material ui functions
-  const emails = ['username@gmail.com', 'user02@gmail.com'];
   const { onClose } = 'props';
 
   const [open, setOpen] = React.useState(false);

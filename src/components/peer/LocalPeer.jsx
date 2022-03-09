@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useVideo } from '@100mslive/react-sdk';
 
 import HandRaiseBadge from './HandRaiseBadge';
 
-// hook for styling
-import useStyles from './styles';
+
 
 const LocalPeer = ({localpeer}) => {
 
@@ -12,13 +11,11 @@ const LocalPeer = ({localpeer}) => {
     const ref = useVideo(localpeer.videoTrack);
 
     
-    // Hook for styling
-    const classes = useStyles();
+    
 
     
     let width = '350px'
      
-
   return (
     <div>
       <div>
