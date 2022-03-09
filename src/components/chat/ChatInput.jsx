@@ -1,5 +1,5 @@
 import React from 'react';
-import InputEmoji from 'react-input-emoji';
+
 
 
 const ChatInput = ({ value, onChange, onKeyPress }) => {
