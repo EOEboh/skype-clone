@@ -15,15 +15,13 @@ import ShowChat from './ShowChat';
 import ScreenShare from './ScreenShare';
 
 
-// const pages = ['Products', 'Pricing'];
-
 
 
 const StatusBar = ({toggleChat,toggleScreen, handleClickOpen}) => {
   return (
     
     <>
-  <AppBar position="static" style={{background: '#787878'}}>
+  <AppBar position="static" style={{background: 'transparent'}}>
        <Container maxWidth="xl">
          <Toolbar disableGutters>
           <Participants handleClickOpen={handleClickOpen}/>
