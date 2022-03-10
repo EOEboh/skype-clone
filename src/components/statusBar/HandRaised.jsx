@@ -20,7 +20,7 @@ const HandRaised = () => {
 
   return (
       <>     
-    <button className='btn-control' onClick={toggleHandRaised}
+    <button onClick={toggleHandRaised}
      style={styles.button}>
         { !isHandRaised ? (<MdOutlineFrontHand />) : (<MdFrontHand />) }
     </button>

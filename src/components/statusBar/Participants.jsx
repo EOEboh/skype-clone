@@ -8,7 +8,8 @@ const Participants = ({handleClickOpen}) => {
      style={styles.button}>
         <BsPeople />
     </button>    
-  ) }
+    ) 
+  }
 
 
   const styles ={

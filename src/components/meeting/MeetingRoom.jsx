@@ -44,6 +44,11 @@ const MeetingRoom = () => {
     const isLocalScreenShared = useHMSStore(selectIsLocalScreenShared);
 
 
+      // function to toggle screenshare
+     const toggleScreen = async () => {
+      await hmsActions.setScreenShareEnabled(!isLocalScreenShared);
+  }
+  
     // state to toggle chat 
     const [ seeChat, setSeeChat ] = useState(false);
 
@@ -52,10 +57,6 @@ const MeetingRoom = () => {
         setSeeChat(!seeChat)
     }  
 
-      // function to toggle screenshare
-     const toggleScreen = async () => {
-      await hmsActions.setScreenShareEnabled(!isLocalScreenShared);
-  }
 
   // material ui functions
   const { onClose } = 'props';
@@ -124,7 +125,7 @@ return (
       </List>
     </Dialog>
   
- </div>
+  </div>
         <div style={{ width: 'calc(90vw - 100px)' }}>             
            <Screen isLocal={false} peer={peers}/>                
          </div>
