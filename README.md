@@ -1,6 +1,6 @@
 # 100ms Skype Clone Project
 
-This is a React technical tutorial I developed and wrote for 100ms.live
+This is a React and JavaScript technical tutorial I developed and wrote for 100ms.live
 
 The project is a Skype clone using the 100ms SDK, Material UI and React.js.
 
